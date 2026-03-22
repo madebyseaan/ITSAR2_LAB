@@ -1,0 +1,61 @@
+== Info: Host localhost:4001 was resolved.
+== Info: IPv6: ::1
+== Info: IPv4: 127.0.0.1
+== Info:   Trying [::1]:4001...
+== Info: Connected to localhost (::1) port 4001
+== Info: using HTTP/1.x
+=> Send header, 139 bytes (0x8b)
+0000: POST /students HTTP/1.1
+0019: Host: localhost:4001
+002f: User-Agent: curl/8.13.0
+0048: Accept: */*
+0055: Content-Type: application/json
+0075: Content-Length: 59
+0089: 
+=> Send data, 59 bytes (0x3b)
+0000: {fullName:Sean Justin Roma,email:sean.roma.seq@example.com}
+== Info: upload completely sent off: 59 bytes
+<= Recv header, 26 bytes (0x1a)
+0000: HTTP/1.1 400 Bad Request
+<= Recv header, 23 bytes (0x17)
+0000: X-Powered-By: Express
+<= Recv header, 32 bytes (0x20)
+0000: Access-Control-Allow-Origin: *
+<= Recv header, 45 bytes (0x2d)
+0000: Content-Security-Policy: default-src 'none'
+<= Recv header, 33 bytes (0x21)
+0000: X-Content-Type-Options: nosniff
+<= Recv header, 40 bytes (0x28)
+0000: Content-Type: text/html; charset=utf-8
+<= Recv header, 22 bytes (0x16)
+0000: Content-Length: 1223
+<= Recv header, 37 bytes (0x25)
+0000: Date: Fri, 20 Mar 2026 14:30:59 GMT
+<= Recv header, 24 bytes (0x18)
+0000: Connection: keep-alive
+<= Recv header, 23 bytes (0x17)
+0000: Keep-Alive: timeout=5
+<= Recv header, 2 bytes (0x2)
+0000: 
+<= Recv data, 1223 bytes (0x4c7)
+0000: <!DOCTYPE html>.<html lang="en">.<head>.<meta charset="utf-8">.<
+0040: title>Error</title>.</head>.<body>.<pre>SyntaxError: Expected pr
+0080: operty name or &#39;}&#39; in JSON at position 1 (line 1 column 
+00c0: 2)<br> &nbsp; &nbsp;at JSON.parse (&lt;anonymous&gt;)<br> &nbsp;
+0100:  &nbsp;at parse (C:\Users\Sean\Desktop\SAR2\Lab2\services\studen
+0140: t-service\node_modules\body-parser\lib\types\json.js:92:19)<br> 
+0180: &nbsp; &nbsp;at C:\Users\Sean\Desktop\SAR2\Lab2\services\student
+01c0: -service\node_modules\body-parser\lib\read.js:128:18<br> &nbsp; 
+0200: &nbsp;at AsyncResource.runInAsyncScope (node:async_hooks:214:14)
+0240: <br> &nbsp; &nbsp;at invokeCallback (C:\Users\Sean\Desktop\SAR2\
+0280: Lab2\services\student-service\node_modules\raw-body\index.js:238
+02c0: :16)<br> &nbsp; &nbsp;at done (C:\Users\Sean\Desktop\SAR2\Lab2\s
+0300: ervices\student-service\node_modules\raw-body\index.js:227:7)<br
+0340: > &nbsp; &nbsp;at IncomingMessage.onEnd (C:\Users\Sean\Desktop\S
+0380: AR2\Lab2\services\student-service\node_modules\raw-body\index.js
+03c0: :287:7)<br> &nbsp; &nbsp;at IncomingMessage.emit (node:events:50
+0400: 8:28)<br> &nbsp; &nbsp;at endReadableNT (node:internal/streams/r
+0440: eadable:1701:12)<br> &nbsp; &nbsp;at process.processTicksAndReje
+0480: ctions (node:internal/process/task_queues:89:21)</pre>.</body>.<
+04c0: /html>.
+== Info: Connection #0 to host localhost left intact

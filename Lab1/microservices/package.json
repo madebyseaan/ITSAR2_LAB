@@ -1,0 +1,12 @@
+{
+  "name": "sar2-microservices-lab1",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix student-service install && npm --prefix course-service install && npm --prefix enrollment-service install && npm --prefix dashboard-service install",
+    "start:student": "npm --prefix student-service start",
+    "start:course": "npm --prefix course-service start",
+    "start:enrollment": "npm --prefix enrollment-service start",
+    "start:dashboard": "npm --prefix dashboard-service start"
+  }
+}

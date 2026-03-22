@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduLink Microservices Dashboard</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="masthead">
+      <div class="brandline">
+        <div class="brand-logo">E</div>
+        <div class="brand-copy">
+          <h1>EduLink</h1>
+          <p>Student Course Control Center</p>
+        </div>
+      </div>
+
+      <nav class="menu" aria-label="Primary">
+        <button class="menu-item active" data-view="students">Students</button>
+        <button class="menu-item" data-view="courses">Courses</button>
+        <button class="menu-item" data-view="enrollments">Enrollments</button>
+        <button class="menu-item" data-view="architecture">Architecture</button>
+      </nav>
+
+      <div class="masthead-actions">
+        <span class="pill">MICROSERVICES</span>
+        <button id="open-main-modal" class="btn primary">Quick Action</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <section class="canvas">
+        <header class="hero">
+          <div>
+            <p class="eyebrow">System Architecture and Integration 2</p>
+            <h2 id="page-title">Students</h2>
+            <p class="hero-note">Operate the distributed services from one command surface.</p>
+          </div>
+          <div class="hero-user">
+            <strong>Admin User</strong>
+            <p>Microservices Lab</p>
+          </div>
+        </header>
+
+        <section class="cards">
+          <article class="stat-card">
+            <p>Registered Students</p>
+            <h3 id="students-count">0</h3>
+          </article>
+          <article class="stat-card">
+            <p>Available Courses</p>
+            <h3 id="courses-count">0</h3>
+          </article>
+          <article class="stat-card">
+            <p>Total Enrollments</p>
+            <h3 id="enrollments-count">0</h3>
+          </article>
+        </section>
+
+        <section id="students-view" class="view active">
+          <div class="section-head">
+            <h3>Student Directory</h3>
+            <button id="open-student-modal" class="btn primary">Add Student</button>
+          </div>
+          <div class="table-shell">
+            <table>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Created</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="students-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="courses-view" class="view">
+          <div class="section-head">
+            <h3>Course Catalog</h3>
+            <button id="open-course-modal" class="btn primary">Add Course</button>
+          </div>
+          <div class="table-shell">
+            <table>
+              <thead>
+                <tr>
+                  <th>Code</th>
+                  <th>Title</th>
+                  <th>Created</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="courses-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="enrollments-view" class="view">
+          <div class="section-head">
+            <h3>Enrollment Ledger</h3>
+            <button id="open-enrollment-modal" class="btn primary">Enroll Student</button>
+          </div>
+          <div class="table-shell">
+            <table>
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Course</th>
+                  <th>Enrolled At</th>
+                </tr>
+              </thead>
+              <tbody id="enrollments-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <section id="architecture-view" class="view">
+          <div class="architecture-grid">
+            <div class="arch-card">
+              <h4>Student Service</h4>
+              <p>Port 4001, students.db</p>
+            </div>
+            <div class="arch-card">
+              <h4>Course Service</h4>
+              <p>Port 4002, courses.db</p>
+            </div>
+            <div class="arch-card">
+              <h4>Enrollment Service</h4>
+              <p>Port 4003, enrollments.db, HTTP integration</p>
+            </div>
+            <div class="arch-card wide">
+              <h4>Request Flow</h4>
+              <p>Dashboard Service -> Enrollment Service -> Student Service/Course Service</p>
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <aside class="service-rail">
+        <article class="rail-card">
+          <h4>Service Map</h4>
+          <p>Student Service</p>
+          <span>localhost:4001</span>
+          <p>Course Service</p>
+          <span>localhost:4002</span>
+          <p>Enrollment Service</p>
+          <span>localhost:4003</span>
+        </article>
+
+        <article class="rail-card">
+          <h4>Architecture Note</h4>
+          <p>Enrollment validates Student and Course through HTTP before writing to its own database.</p>
+        </article>
+
+        <article class="rail-card">
+          <h4>Lab Objective</h4>
+          <p>Compare monolithic simplicity with microservices scalability and fault isolation.</p>
+        </article>
+      </aside>
+    </main>
+  </div>
+
+  <div id="modal" class="modal hidden">
+    <div class="modal-card">
+      <div class="modal-head">
+        <h3 id="modal-title">Action</h3>
+        <button id="close-modal" class="btn ghost">Close</button>
+      </div>
+      <form id="modal-form"></form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script src="script.js"></script>
+</body>
+</html>
